@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spacious Flat · Falkenberg — Guest Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#15293d;
+  --navy-deep:#0e1d2c;
+  --cream:#faf6ef;
+  --cream-2:#f2e9dc;
+  --coral:#e3724f;
+  --coral-dark:#c95c3c;
+  --teal:#2f8f8a;
+  --gold:#e3b15a;
+  --ink:#1d2a36;
+  --muted:#647585;
+  --line:#e7dccb;
+  --white:#fff;
+  --shadow:0 10px 34px rgba(21,41,61,.12);
+  --shadow-sm:0 4px 14px rgba(21,41,61,.08);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.13;letter-spacing:-.01em}
+a{color:var(--coral-dark)}
+img{max-width:100%;display:block}
+
+/* ---- Header / Tabs ---- */
+header{position:sticky;top:0;z-index:60;background:rgba(250,246,239,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1120px;margin:0 auto;padding:.6rem 1.2rem}
+.htop{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'Fraunces',serif;font-weight:700;color:var(--navy);font-size:1.05rem}
+.lang{display:flex;border:1.5px solid var(--navy);border-radius:999px;overflow:hidden;font-size:.74rem;font-weight:700;flex:none}
+.lang button{border:none;background:transparent;color:var(--navy);padding:.3rem .68rem;cursor:pointer;font-family:inherit;font-weight:700;letter-spacing:.04em}
+.lang button.active{background:var(--navy);color:var(--cream)}
+.tabs{display:flex;gap:.3rem;margin-top:.55rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:var(--muted);padding:.5rem .9rem;border-radius:999px;cursor:pointer;white-space:nowrap;transition:all .15s;display:flex;align-items:center;gap:.4rem}
+.tab:hover{color:var(--navy);background:var(--cream-2)}
+.tab.active{background:var(--navy);color:var(--cream)}
+
+/* ---- Panels ---- */
+.panel{display:none;animation:fade .35s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+main{max-width:1120px;margin:0 auto;padding:0 1.2rem 3rem}
+section{padding:2.2rem 0;scroll-margin-top:120px}
+.sec-head{margin-bottom:1.4rem}
+.kicker{text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;font-weight:700;color:var(--coral)}
+.sec-head h2{font-size:clamp(1.55rem,4vw,2.1rem);color:var(--navy);margin-top:.3rem}
+.sec-head p.lead{color:var(--muted);max-width:660px;margin-top:.5rem;font-size:.97rem}
+
+/* ---- Hero ---- */
+.hero{position:relative;border-radius:var(--radius);overflow:hidden;margin-top:1.4rem;min-height:430px;display:flex;align-items:flex-end;box-shadow:var(--shadow)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,29,44,.15) 0%,rgba(14,29,44,.82) 100%)}
+.hero .content{position:relative;color:#fff;padding:2.4rem;max-width:680px}
+.hero .eyebrow{text-transform:uppercase;letter-spacing:.26em;font-size:.7rem;font-weight:700;opacity:.92;color:var(--gold)}
+.hero h1{font-size:clamp(2rem,5.5vw,3.2rem);margin:.5rem 0 .5rem;font-weight:700;color:#fff}
+.hero p{font-size:1.02rem;opacity:.95;max-width:520px}
+.hero .pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
+.hero .pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.36rem .85rem;font-size:.8rem;backdrop-filter:blur(4px)}
+
+/* ---- Quick info ---- */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:1.2rem}
+.qi{background:var(--white);border-radius:16px;padding:1rem 1.1rem;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.qi .label{font-size:.66rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:700}
+.qi .val{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy);margin-top:.2rem;font-weight:600}
+.qi .val small{display:block;font-family:'Inter';font-size:.76rem;font-weight:400;color:var(--muted)}
+@media(max-width:720px){.quick{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- Cards ---- */
+.cards{display:grid;gap:1rem}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.cols-2,.cols-3{grid-template-columns:1fr}}
+.card{background:var(--white);border-radius:var(--radius);padding:1.35rem 1.45rem;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.card h3{font-size:1.12rem;color:var(--navy);margin-bottom:.5rem;display:flex;align-items:center;gap:.55rem}
+.card h3 .ico{flex:none;width:34px;height:34px;border-radius:10px;background:var(--cream-2);display:grid;place-items:center;font-size:1.05rem}
+.card p{font-size:.92rem;color:var(--ink)}
+.card .meta{font-size:.82rem;color:var(--muted);margin-top:.3rem}
+.highlight{background:linear-gradient(140deg,var(--navy),var(--navy-deep));color:#fff;border:none}
+.highlight h3{color:#fff}.highlight h3 .ico{background:rgba(255,255,255,.14)}
+.highlight p,.highlight .meta{color:rgba(255,255,255,.92)}
+.highlight a{color:var(--gold)}
+.cred{display:flex;flex-direction:column;gap:.5rem;margin-top:.9rem}
+.cred .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:11px;padding:.55rem .85rem}
+.cred .row .k{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;opacity:.82}
+.cred .row .v{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600}
+
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:.3rem}
+ul.clean li{position:relative;padding-left:1.45rem;font-size:.92rem}
+ul.clean li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+ol.check{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:.6rem;margin-top:.3rem}
+ol.check li{position:relative;padding-left:2.3rem;counter-increment:s;font-size:.93rem}
+ol.check li::before{content:counter(s);position:absolute;left:0;top:-2px;width:1.65rem;height:1.65rem;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:600;font-family:'Fraunces',serif}
+
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
+.chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.38rem .8rem;font-size:.8rem;color:var(--ink);box-shadow:0 2px 6px rgba(21,41,61,.04)}
+.chip span{margin-right:.3rem}
+
+/* ---- Gallery ---- */
+.gallery{columns:3;column-gap:.8rem;margin-top:.4rem}
+.gallery img{width:100%;border-radius:14px;margin-bottom:.8rem;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .2s,box-shadow .2s;break-inside:avoid}
+.gallery img:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+@media(max-width:900px){.gallery{columns:2}}
+@media(max-width:540px){.gallery{columns:1}}
+.lightbox{position:fixed;inset:0;background:rgba(14,29,44,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92%;max-height:92%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+
+/* ---- List rows ---- */
+.list-row{display:flex;gap:.9rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.list-row:last-child{border-bottom:none}
+.list-row .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--cream-2);color:var(--navy);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:.92rem}
+.list-row .body h4{font-size:.98rem;color:var(--ink);margin-bottom:.1rem;font-weight:600}
+.list-row .body p{font-size:.86rem;color:var(--muted)}
+.list-row .body .dist{font-size:.76rem;color:var(--coral);font-weight:700}
+.list-row .body .tag{display:inline-block;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);font-weight:700;margin-left:.35rem}
+
+/* ---- Map ---- */
+.map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.map-wrap iframe{width:100%;height:380px;border:0;display:block}
+.map-links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.map-links a{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.42rem .9rem;font-size:.82rem;color:var(--navy);font-weight:600;text-decoration:none}
+.map-links a:hover{background:var(--navy);color:#fff}
+
+/* ---- Emergency ---- */
+.emerg{background:var(--navy-deep);color:#fff;border-radius:var(--radius);padding:1.4rem 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.emerg .e{border-right:1px solid rgba(255,255,255,.14);padding-right:1rem}
+.emerg .e:last-child{border-right:none}
+.emerg .e .n{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:700;color:var(--gold)}
+.emerg .e .d{font-size:.82rem;opacity:.85}
+@media(max-width:720px){.emerg{grid-template-columns:1fr}.emerg .e{border-right:none;border-bottom:1px solid rgba(255,255,255,.14);padding-right:0;padding-bottom:.6rem}.emerg .e:last-child{border-bottom:none}}
+
+/* ---- World Cup ---- */
+.wc-hero{background:linear-gradient(135deg,#1b3a5c,#0e1d2c);border-radius:var(--radius);padding:1.6rem 1.7rem;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.wc-hero::after{content:"⚽";position:absolute;right:-10px;bottom:-20px;font-size:8rem;opacity:.08}
+.wc-hero h3{color:#fff;font-size:1.3rem;margin-bottom:.3rem}
+.wc-hero p{font-size:.9rem;opacity:.9;max-width:560px}
+.swe-games{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.1rem}
+.swe-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:.85rem .9rem}
+.swe-card .vs{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem}
+.swe-card .when{font-size:.8rem;color:var(--gold);font-weight:600;margin-top:.25rem}
+@media(max-width:720px){.swe-games{grid-template-columns:1fr}}
+.tz-note{font-size:.8rem;color:var(--muted);margin:1.3rem 0 .3rem;font-style:italic}
+.wc-day{margin-top:1.1rem}
+.wc-day .dh{font-family:'Fraunces',serif;font-weight:600;color:var(--navy);font-size:1rem;padding:.35rem 0;border-bottom:2px solid var(--cream-2);display:flex;align-items:center;gap:.5rem}
+.wc-day .dh .past{font-size:.64rem;background:var(--cream-2);color:var(--muted);padding:.12rem .45rem;border-radius:999px;font-family:'Inter';font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.match{display:grid;grid-template-columns:58px 1fr;gap:.7rem;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.match:last-child{border-bottom:none}
+.match .t{font-family:'Fraunces',serif;font-weight:600;color:var(--coral-dark);font-size:.92rem}
+.match .teams{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.match.swe{background:linear-gradient(90deg,rgba(227,177,90,.16),transparent);border-radius:8px;padding-left:.5rem;margin-left:-.5rem}
+.match.swe .teams::after{content:"💛💙";font-size:.8rem;margin-left:.2rem}
+.kf{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:1rem}
+.kf .k{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem;box-shadow:var(--shadow-sm)}
+.kf .k .r{font-family:'Fraunces',serif;font-weight:600;color:var(--navy)}
+.kf .k .dt{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+.kf .k.fin{background:linear-gradient(135deg,var(--gold),#d49b3f);border:none;color:#3a2c10}
+.kf .k.fin .r,.kf .k.fin .dt{color:#3a2c10}
+@media(max-width:720px){.kf{grid-template-columns:1fr}}
+
+/* ---- Car ---- */
+.car{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.car .ph{position:relative;min-height:300px}
+.car .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.car .ph .badge{position:absolute;top:1rem;left:1rem;background:var(--coral);color:#fff;font-weight:700;font-size:.78rem;padding:.35rem .8rem;border-radius:999px;box-shadow:var(--shadow-sm)}
+.car .info{padding:1.7rem 1.8rem}
+.car .info h3{font-size:1.4rem;color:var(--navy)}
+.car .price{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--coral-dark);font-weight:700;margin:.5rem 0 .1rem}
+.car .price small{font-family:'Inter';font-size:.85rem;color:var(--muted);font-weight:400}
+.car .specs{display:flex;flex-wrap:wrap;gap:.45rem;margin:.9rem 0}
+.car .specs span{background:var(--cream-2);border-radius:999px;padding:.3rem .7rem;font-size:.78rem;font-weight:600;color:var(--navy)}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:700;font-size:.92rem;padding:.7rem 1.4rem;border-radius:999px;text-decoration:none;margin-top:.6rem;transition:background .15s}
+.btn:hover{background:var(--coral-dark);text-decoration:none;color:#fff}
+@media(max-width:720px){.car{grid-template-columns:1fr}.car .ph{min-height:220px}}
+
+footer{background:var(--navy-deep);color:var(--cream);margin-top:1.5rem;padding:2.4rem 1.2rem;text-align:center;border-radius:var(--radius) var(--radius) 0 0}
+footer .fb{font-family:'Fraunces',serif;font-size:1.25rem;color:#fff;margin-bottom:.35rem}
+footer p{font-size:.84rem;opacity:.82;max-width:470px;margin:.25rem auto}
+footer .heart{color:var(--coral)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="htop">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 18c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1" stroke="#2f8f8a" stroke-width="1.7" stroke-linecap="round"/><path d="M12 3l3.5 6.5h-7L12 3z" fill="#e3b15a"/><rect x="7" y="9.5" width="10" height="7.5" rx="1" fill="#15293d"/></svg>
+        <span data-en="Falkenberg Flat" data-sv="Lägenheten i Falkenberg">Falkenberg Flat</span>
+      </div>
+      <div class="lang">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-sv" onclick="setLang('sv')">SV</button>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="welcome">🌊 <span data-en="Welcome" data-sv="Välkommen">Welcome</span></button>
+      <button class="tab" data-tab="apartment">🏡 <span data-en="The Apartment" data-sv="Lägenheten">The Apartment</span></button>
+      <button class="tab" data-tab="arrival">🔑 <span data-en="Arrival &amp; Practical" data-sv="Ankomst &amp; Praktiskt">Arrival &amp; Practical</span></button>
+      <button class="tab" data-tab="explore">🍽️ <span data-en="Eat &amp; Explore" data-sv="Äta &amp; Upptäcka">Eat &amp; Explore</span></button>
+      <button class="tab" data-tab="worldcup">⚽ <span data-en="World Cup 2026" data-sv="Fotbolls-VM 2026">World Cup 2026</span></button>
+      <button class="tab" data-tab="car">🚗 <span data-en="Rent a Tesla" data-sv="Hyr en Tesla">Rent a Tesla</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ WELCOME ============ -->
+<div class="panel active" id="welcome">
+  <div class="hero">
+    <img class="bg" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1531062853568653805/original/7c772072-5bfd-46a9-a17f-a925ab051264.jpeg?im_w=1200" alt="The apartment living room">
+    <div class="scrim"></div>
+    <div class="content">
+      <div class="eyebrow" data-en="Falkenberg · West Coast of Sweden" data-sv="Falkenberg · Sveriges västkust">Falkenberg · West Coast of Sweden</div>
+      <h1 data-en="Welcome to your home by the sea" data-sv="Välkommen till ditt hem vid havet">Welcome to your home by the sea</h1>
+      <p data-en="A bright, spacious 4-bedroom flat just 15 minutes from the beach. Everything you need for your stay — arrival details, the home guide, local favourites, the World Cup schedule, and a Tesla to rent." data-sv="En ljus, rymlig lägenhet med 4 sovrum, bara 15 minuter från stranden. Allt du behöver för din vistelse — ankomst, boendeguide, lokala favoriter, VM-schemat och en Tesla att hyra.">A bright, spacious 4-bedroom flat just 15 minutes from the beach. Everything you need for your stay — arrival details, the home guide, local favourites, the World Cup schedule, and a Tesla to rent.</p>
+      <div class="pills">
+        <span class="pill" data-en="🛏️ 4 bedrooms · sleeps 7" data-sv="🛏️ 4 sovrum · plats för 7">🛏️ 4 bedrooms · sleeps 7</span>
+        <span class="pill" data-en="🔥 Fireplace &amp; terrace" data-sv="🔥 Öppen spis &amp; terrass">🔥 Fireplace &amp; terrace</span>
+        <span class="pill" data-en="🏖️ Skrea beach nearby" data-sv="🏖️ Skrea strand nära">🏖️ Skrea beach nearby</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick">
+    <div class="qi"><div class="label" data-en="Check-in" data-sv="Incheckning">Check-in</div><div class="val">15:00 <small data-en="Self · lockbox" data-sv="Själv · nyckelskåp">Self · lockbox</small></div></div>
+    <div class="qi"><div class="label" data-en="Check-out" data-sv="Utcheckning">Check-out</div><div class="val">12:00 <small data-en="Keys in lockbox" data-sv="Nycklar i skåpet">Keys in lockbox</small></div></div>
+    <div class="qi"><div class="label">Wi-Fi</div><div class="val">Family <small>Falkenberg2026</small></div></div>
+    <div class="qi"><div class="label" data-en="Address" data-sv="Adress">Address</div><div class="val" style="font-size:.98rem">Nygatan 53 <small>311 74 Falkenberg</small></div></div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <div class="kicker" data-en="At a glance" data-sv="I korthet">At a glance</div>
+      <h2 data-en="Find your way around" data-sv="Hitta runt i guiden">Find your way around</h2>
+      <p class="lead" data-en="Use the tabs at the top to jump between sections. Here's what's inside." data-sv="Använd flikarna högst upp för att hoppa mellan avsnitten. Här är vad som finns.">Use the tabs at the top to jump between sections. Here's what's inside.</p>
+    </div>
+    <div class="cards cols-3">
+      <div class="card" onclick="showTab('apartment')" style="cursor:pointer"><h3><span class="ico">🏡</span><span data-en="The Apartment" data-sv="Lägenheten">The Apartment</span></h3><p data-en="Photos, amenities and everything the home offers." data-sv="Bilder, utrustning och allt boendet erbjuder.">Photos, amenities and everything the home offers.</p></div>
+      <div class="card" onclick="showTab('arrival')" style="cursor:pointer"><h3><span class="ico">🔑</span><span data-en="Arrival &amp; Practical" data-sv="Ankomst &amp; Praktiskt">Arrival &amp; Practical</span></h3><p data-en="Check-in, Wi-Fi, parking, house rules, map &amp; emergencies." data-sv="Incheckning, Wi-Fi, parkering, regler, karta &amp; nödnummer.">Check-in, Wi-Fi, parking, house rules, map &amp; emergencies.</p></div>
+      <div class="card" onclick="showTab('explore')" style="cursor:pointer"><h3><span class="ico">🍽️</span><span data-en="Eat &amp; Explore" data-sv="Äta &amp; Upptäcka">Eat &amp; Explore</span></h3><p data-en="Our favourite restaurants, cafés, beaches and day trips." data-sv="Våra favoritrestauranger, caféer, stränder och utflykter.">Our favourite restaurants, cafés, beaches and day trips.</p></div>
+      <div class="card" onclick="showTab('worldcup')" style="cursor:pointer"><h3><span class="ico">⚽</span><span data-en="World Cup 2026" data-sv="Fotbolls-VM 2026">World Cup 2026</span></h3><p data-en="Full match schedule in Swedish time — cheer on Sweden!" data-sv="Hela matchschemat i svensk tid — heja Sverige!">Full match schedule in Swedish time — cheer on Sweden!</p></div>
+      <div class="card" onclick="showTab('car')" style="cursor:pointer"><h3><span class="ico">🚗</span><span data-en="Rent a Tesla" data-sv="Hyr en Tesla">Rent a Tesla</span></h3><p data-en="A Tesla Model 3 available locally from 540 kr/day." data-sv="En Tesla Model 3 finns lokalt från 540 kr/dag.">A Tesla Model 3 available locally from 540 kr/day.</p></div>
+      <div class="card highlight"><h3><span class="ico">💬</span><span data-en="Need help?" data-sv="Behöver du hjälp?">Need help?</span></h3><p data-en="Message me any time through the Airbnb app or your Booking.com message inbox — I'm quick to reply." data-sv="Skriv till mig när som helst via Airbnb-appen eller din meddelandeinkorg på Booking.com — jag svarar snabbt.">Message me any time through the Airbnb app or your Booking.com message inbox — I'm quick to reply.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ APARTMENT ============ -->
+<div class="panel" id="apartment">
+  <section>
+    <div class="sec-head">
+      <div class="kicker" data-en="Your Space" data-sv="Ditt Boende">Your Space</div>
+      <h2 data-en="The Apartment" data-sv="Lägenheten">The Apartment</h2>
+      <p class="lead" data-en="A bright, spacious 4-bedroom flat with a private terrace, fireplace and fully equipped kitchen — set up for families and groups of up to 7. Tap any photo to enlarge." data-sv="En ljus, rymlig lägenhet med 4 sovrum, privat terrass, öppen spis och ett fullt utrustat kök — för familjer och sällskap upp till 7. Tryck på en bild för att förstora.">A bright, spacious 4-bedroom flat with a private terrace, fireplace and fully equipped kitchen — set up for families and groups of up to 7. Tap any photo to enlarge.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Inside the home" data-sv="Inne i boendet">Inside the home</div><h2 data-en="Comfort &amp; equipment" data-sv="Komfort &amp; utrustning">Comfort &amp; equipment</h2></div>
+    <div class="cards cols-2">
+      <div class="card"><h3><span class="ico">🔥</span><span data-en="Heating &amp; fireplace" data-sv="Värme &amp; öppen spis">Heating &amp; fireplace</span></h3><p data-en="Central heating keeps the flat warm. If you use the fireplace, only burn the wood provided, keep the flue open, and never leave a fire unattended. A fire extinguisher and smoke detector are installed." data-sv="Centralvärme håller lägenheten varm. Om du använder den öppna spisen, elda endast med veden som finns, håll spjället öppet och lämna aldrig elden utan uppsikt. Brandsläckare och brandvarnare finns.">Central heating keeps the flat warm. If you use the fireplace, only burn the wood provided, keep the flue open, and never leave a fire unattended. A fire extinguisher and smoke detector are installed.</p></div>
+      <div class="card"><h3><span class="ico">🍳</span><span data-en="Kitchen" data-sv="Köket">Kitchen</span></h3><p data-en="Fully equipped: induction hob, oven, fridge-freezer, dishwasher, kettle, filter coffee machine, toaster, and all the pots, pans, dishes and wine glasses you'll need. Basic oil, salt and pepper provided." data-sv="Fullt utrustat: induktionshäll, ugn, kyl/frys, diskmaskin, vattenkokare, kaffebryggare, brödrost samt alla kastruller, tallrikar och vinglas du behöver. Basolja, salt och peppar finns.">Fully equipped: induction hob, oven, fridge-freezer, dishwasher, kettle, filter coffee machine, toaster, and all the pots, pans, dishes and wine glasses you'll need. Basic oil, salt and pepper provided.</p></div>
+      <div class="card"><h3><span class="ico">🧺</span><span data-en="Laundry &amp; comfort" data-sv="Tvätt &amp; bekvämlighet">Laundry &amp; comfort</span></h3><p data-en="Washer and dryer in the unit, iron, hangers and clothing storage. Fresh bed linen and blackout blinds in the bedrooms for easy sleep on bright Nordic evenings." data-sv="Tvättmaskin och torktumlare i lägenheten, strykjärn, galgar och klädförvaring. Rena sänglinnen och mörkläggningsgardiner i sovrummen för god sömn under ljusa nordiska kvällar.">Washer and dryer in the unit, iron, hangers and clothing storage. Fresh bed linen and blackout blinds in the bedrooms for easy sleep on bright Nordic evenings.</p></div>
+      <div class="card"><h3><span class="ico">🧸</span><span data-en="Family &amp; terrace" data-sv="Familj &amp; terrass">Family &amp; terrace</span></h3><p data-en="A children's playroom with toys, books and board games. Outside, a private terrace with barbecue and grilling tools — perfect for slow summer evenings. TV with Netflix indoors." data-sv="Ett lekrum för barn med leksaker, böcker och sällskapsspel. Ute finns en privat terrass med grill och grilltillbehör — perfekt för sköna sommarkvällar. TV med Netflix inomhus.">A children's playroom with toys, books and board games. Outside, a private terrace with barbecue and grilling tools — perfect for slow summer evenings. TV with Netflix indoors.</p></div>
+    </div>
+    <h3 class="serif" style="color:var(--navy);margin:1.8rem 0 .7rem;font-size:1.18rem" data-en="Everything included" data-sv="Allt som ingår">Everything included</h3>
+    <div class="chips" id="amenity-chips"></div>
+  </section>
+</div>
+
+<!-- ============ ARRIVAL & PRACTICAL ============ -->
+<div class="panel" id="arrival">
+  <section>
+    <div class="sec-head">
+      <div class="kicker" data-en="Getting In" data-sv="Att Komma In">Getting In</div>
+      <h2 data-en="Arrival &amp; Access" data-sv="Ankomst &amp; Access">Arrival &amp; Access</h2>
+      <p class="lead" data-en="Self check-in any time after 15:00. I'm not on site but reply quickly through the Airbnb app or your Booking.com message inbox." data-sv="Självincheckning när som helst efter 15:00. Jag finns inte på plats men svarar snabbt via Airbnb-appen eller din meddelandeinkorg på Booking.com.">Self check-in any time after 15:00. I'm not on site but reply quickly through the Airbnb app or your Booking.com message inbox.</p>
+    </div>
+    <div class="cards cols-2">
+      <div class="card highlight"><h3><span class="ico">🔑</span><span data-en="Your keys — secure lockbox" data-sv="Dina nycklar — säkert nyckelskåp">Your keys — secure lockbox</span></h3><p data-en="The keys are in the secure lockbox at the entrance. I'll send the code before arrival through the Airbnb app — or, if you booked on Booking.com, your Booking.com message inbox. Please return the keys to the lockbox when you leave." data-sv="Nycklarna finns i det säkra nyckelskåpet vid entrén. Jag skickar koden innan ankomst via Airbnb-appen — eller, om du bokat på Booking.com, din meddelandeinkorg på Booking.com. Lägg tillbaka nycklarna i skåpet när du åker.">The keys are in the secure lockbox at the entrance. I'll send the code before arrival through the Airbnb app — or, if you booked on Booking.com, your Booking.com message inbox. Please return the keys to the lockbox when you leave.</p>
+        <div class="cred"><div class="row"><span class="k" data-en="Check-in from" data-sv="Incheckning från">Check-in from</span><span class="v">15:00</span></div><div class="row"><span class="k" data-en="Check-out by" data-sv="Utcheckning senast">Check-out by</span><span class="v">12:00</span></div></div></div>
+      <div class="card highlight"><h3><span class="ico">📶</span>Wi-Fi</h3><p data-en="Free, fast wireless throughout the flat. Connect with the details below." data-sv="Gratis, snabbt trådlöst i hela lägenheten. Anslut med uppgifterna nedan.">Free, fast wireless throughout the flat. Connect with the details below.</p>
+        <div class="cred"><div class="row"><span class="k" data-en="Network" data-sv="Nätverk">Network</span><span class="v">Family</span></div><div class="row"><span class="k" data-en="Password" data-sv="Lösenord">Password</span><span class="v">Falkenberg2026</span></div></div></div>
+    </div>
+    <div class="cards cols-3" style="margin-top:1rem">
+      <div class="card"><h3><span class="ico">🚗</span><span data-en="Parking" data-sv="Parkering">Parking</span></h3><p data-en="Free street parking on and around Nygatan. Check local street signs for any time limits or cleaning days." data-sv="Gratis gatuparkering på och runt Nygatan. Kontrollera gatuskyltarna för tidsgränser eller städdagar.">Free street parking on and around Nygatan. Check local street signs for any time limits or cleaning days.</p></div>
+      <div class="card"><h3><span class="ico">🚆</span><span data-en="Getting around" data-sv="Ta dig runt">Getting around</span></h3><p data-en="The flat is central — most of town is walkable. Falkenberg station (trains to Gothenburg &amp; Malmö) and Hallandstrafiken buses serve the region." data-sv="Lägenheten ligger centralt — det mesta når du till fots. Falkenbergs station (tåg mot Göteborg &amp; Malmö) och Hallandstrafikens bussar betjänar regionen.">The flat is central — most of town is walkable. Falkenberg station (trains to Gothenburg &amp; Malmö) and Hallandstrafiken buses serve the region.</p></div>
+      <div class="card"><h3><span class="ico">🏖️</span><span data-en="To the beach" data-sv="Till stranden">To the beach</span></h3><p data-en="Skrea Strand, the long sandy main beach, is about a 15-minute walk south through town and across the Ätran river." data-sv="Skrea strand, den långa sandstranden, ligger cirka 15 minuters promenad söderut genom stan och över Ätran.">Skrea Strand, the long sandy main beach, is about a 15-minute walk south through town and across the Ätran river.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Good to Know" data-sv="Bra Att Veta">Good to Know</div><h2 data-en="House Rules &amp; Check-out" data-sv="Trivselregler &amp; Utcheckning">House Rules &amp; Check-out</h2></div>
+    <div class="cards cols-2">
+      <div class="card"><h3><span class="ico">🤫</span><span data-en="House rules" data-sv="Trivselregler">House rules</span></h3>
+        <ul class="clean">
+          <li data-en="This is a peaceful building — no parties or events." data-sv="Detta är en lugn fastighet — inga fester eller evenemang.">This is a peaceful building — no parties or events.</li>
+          <li data-en="Respect quiet hours at night: no music or gatherings." data-sv="Respektera nattens lugna timmar: ingen musik eller samlingar.">Respect quiet hours at night: no music or gatherings.</li>
+          <li data-en="Maximum 7 guests." data-sv="Max 7 gäster.">Maximum 7 guests.</li>
+          <li data-en="Some areas are raised without railings — watch small children." data-sv="Vissa ytor är upphöjda utan räcken — håll uppsikt över små barn.">Some areas are raised without railings — watch small children.</li>
+          <li data-en="No smoking inside the flat." data-sv="Ingen rökning inomhus.">No smoking inside the flat.</li>
+        </ul></div>
+      <div class="card"><h3><span class="ico">✅</span><span data-en="Before you leave" data-sv="Innan du åker">Before you leave</span></h3>
+        <ol class="check">
+          <li data-en="Take out the rubbish to the bins provided." data-sv="Släng soporna i avsedda kärl.">Take out the rubbish to the bins provided.</li>
+          <li data-en="Run the dishwasher or leave dishes rinsed." data-sv="Starta diskmaskinen eller lämna disken sköljd.">Run the dishwasher or leave dishes rinsed.</li>
+          <li data-en="Close all windows; switch off lights and hob." data-sv="Stäng alla fönster; släck lampor och häll.">Close all windows; switch off lights and hob.</li>
+          <li data-en="Return the keys to the secure lockbox." data-sv="Lägg tillbaka nycklarna i nyckelskåpet.">Return the keys to the secure lockbox.</li>
+          <li data-en="Check-out by 12:00 — thank you for your stay!" data-sv="Checka ut senast 12:00 — tack för din vistelse!">Check-out by 12:00 — thank you for your stay!</li>
+        </ol></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Around the Flat" data-sv="Runt Lägenheten">Around the Flat</div><h2 data-en="Map &amp; Practical Info" data-sv="Karta &amp; Praktisk Info">Map &amp; Practical Info</h2><p class="lead" data-en="The flat sits centrally at Nygatan 53. Use the buttons to open key spots in Google Maps." data-sv="Lägenheten ligger centralt på Nygatan 53. Använd knapparna för att öppna viktiga platser i Google Maps.">The flat sits centrally at Nygatan 53. Use the buttons to open key spots in Google Maps.</p></div>
+    <div class="map-wrap"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Nygatan%2053,%20311%2074%20Falkenberg,%20Sweden&z=15&output=embed" title="Map of Nygatan 53, Falkenberg"></iframe></div>
+    <div class="map-links">
+      <a href="https://www.google.com/maps/search/?api=1&query=Nygatan+53,+311+74+Falkenberg" target="_blank" rel="noopener">📍 <span data-en="The flat" data-sv="Lägenheten">The flat</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Skrea+Strand+Falkenberg" target="_blank" rel="noopener">🏖️ Skrea Strand</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Tullbron+Falkenberg" target="_blank" rel="noopener">🏛️ Tullbron</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Vallarna+Falkenberg" target="_blank" rel="noopener">🎡 Vallarna</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=supermarket+Falkenberg+centrum" target="_blank" rel="noopener">🛒 <span data-en="Supermarkets" data-sv="Mataffärer">Supermarkets</span></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Falkenberg+station" target="_blank" rel="noopener">🚆 <span data-en="Train station" data-sv="Tågstation">Train station</span></a>
+    </div>
+    <div class="cards cols-3" style="margin-top:1.4rem">
+      <div class="card"><h3><span class="ico">🛒</span><span data-en="Groceries" data-sv="Mataffärer">Groceries</span></h3><p data-en="Supermarkets (ICA, Coop, Willys) are a short walk or drive away in and around the town centre." data-sv="Mataffärer (ICA, Coop, Willys) ligger en kort promenad eller bilresa bort i och runt centrum.">Supermarkets (ICA, Coop, Willys) are a short walk or drive away in and around the town centre.</p></div>
+      <div class="card"><h3><span class="ico">💊</span><span data-en="Pharmacy &amp; health" data-sv="Apotek &amp; vård">Pharmacy &amp; health</span></h3><p data-en="Look for an 'Apotek' in the centre. For non-urgent medical advice call 1177; Falkenberg has a local hospital." data-sv="Leta efter ett apotek i centrum. För icke-akut sjukvårdsrådgivning ring 1177; Falkenberg har ett närsjukhus.">Look for an 'Apotek' in the centre. For non-urgent medical advice call 1177; Falkenberg has a local hospital.</p></div>
+      <div class="card"><h3><span class="ico">♻️</span><span data-en="Waste &amp; recycling" data-sv="Sopor &amp; återvinning">Waste &amp; recycling</span></h3><p data-en="Household rubbish goes in the bins at the property. Sweden sorts recycling — drop glass, paper, plastic &amp; metal at the nearest recycling station." data-sv="Hushållssopor läggs i kärlen vid boendet. Sverige källsorterar — lämna glas, papper, plast &amp; metall vid närmaste återvinningsstation.">Household rubbish goes in the bins at the property. Sweden sorts recycling — drop glass, paper, plastic &amp; metal at the nearest recycling station.</p></div>
+    </div>
+    <h3 class="serif" style="color:var(--navy);margin:1.8rem 0 .3rem;font-size:1.18rem" data-en="Emergency numbers" data-sv="Nödnummer">Emergency numbers</h3>
+    <div class="emerg">
+      <div class="e"><div class="n">112</div><div class="d" data-en="Emergencies — police, fire, ambulance" data-sv="Nödläge — polis, brandkår, ambulans">Emergencies — police, fire, ambulance</div></div>
+      <div class="e"><div class="n">1177</div><div class="d" data-en="Non-urgent medical advice, 24/7" data-sv="Icke-akut sjukvårdsrådgivning, dygnet runt">Non-urgent medical advice, 24/7</div></div>
+      <div class="e"><div class="n">114 14</div><div class="d" data-en="Police, non-emergency" data-sv="Polis, icke-akut">Police, non-emergency</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EXPLORE ============ -->
+<div class="panel" id="explore">
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Local Favourites" data-sv="Lokala Favoriter">Local Favourites</div><h2 data-en="Eat &amp; Drink" data-sv="Äta &amp; Dricka">Eat &amp; Drink</h2><p class="lead" data-en="Falkenberg punches above its weight for food — from wood-fired pizza to award-winning cakes." data-sv="Falkenberg har en förvånansvärt bra matscen — från vedugnsbakad pizza till prisbelönta bakverk.">Falkenberg punches above its weight for food — from wood-fired pizza to award-winning cakes.</p></div>
+    <div class="cards cols-2">
+      <div class="card"><h3 data-en="🍽️ Restaurants" data-sv="🍽️ Restauranger">🍽️ Restaurants</h3>
+        <div class="list-row"><div class="num">1</div><div class="body"><h4>Lilla Napoli</h4><p data-en="A Swedish legend — some of the best Neapolitan pizza in the country. Expect a queue; it's worth it." data-sv="En svensk legend — bland landets bästa napolitanska pizza. Räkna med kö; det är värt det.">A Swedish legend — some of the best Neapolitan pizza in the country. Expect a queue; it's worth it.</p></div></div>
+        <div class="list-row"><div class="num">2</div><div class="body"><h4>Gustaf Bratt</h4><p data-en="The go-to bistro in the old town — modern Swedish cooking, good wine, lovely room." data-sv="Den självklara bistron i gamla stan — modern svensk mat, gott vin och en härlig lokal.">The go-to bistro in the old town — modern Swedish cooking, good wine, lovely room.</p></div></div>
+        <div class="list-row"><div class="num">3</div><div class="body"><h4>Hamnkrogen</h4><p data-en="Relaxed dining beautifully set by the river near the harbour — great in summer." data-sv="Avslappnad mat vackert beläget vid ån nära hamnen — perfekt på sommaren.">Relaxed dining beautifully set by the river near the harbour — great in summer.</p></div></div>
+        <div class="list-row"><div class="num">4</div><div class="body"><h4>Harrys</h4><p data-en="Classic American-style pub and grill — reliable for burgers, drinks and a casual night out." data-sv="Klassisk amerikansk pub och grill — säkert kort för burgare, drinkar och en avslappnad kväll.">Classic American-style pub and grill — reliable for burgers, drinks and a casual night out.</p></div></div>
+        <div class="list-row"><div class="num">5</div><div class="body"><h4>Royal Thai <span class="tag" data-en="&amp; more" data-sv="m.m.">&amp; more</span></h4><p data-en="The town's favourite Thai. Also try Prashad (Indian) or Burger Inn (Brazilian-style burgers)." data-sv="Stans favorit för thai. Testa även Prashad (indiskt) eller Burger Inn (burgare på brasilianskt vis).">The town's favourite Thai. Also try Prashad (Indian) or Burger Inn (Brazilian-style burgers).</p></div></div>
+      </div>
+      <div class="card"><h3 data-en="☕ Cafés &amp; fika" data-sv="☕ Caféer &amp; fika">☕ Cafés &amp; fika</h3>
+        <div class="list-row"><div class="num">1</div><div class="body"><h4>Stålboms Konditori</h4><p data-en="A classic bakery-café since 1957 with beautiful old-style rooms and a leafy courtyard. The fika institution in town." data-sv="Ett klassiskt konditori sedan 1957 med vackra gammaldags rum och en grönskande innergård. Stans fika-institution.">A classic bakery-café since 1957 with beautiful old-style rooms and a leafy courtyard. The fika institution in town.</p></div></div>
+        <div class="list-row"><div class="num">2</div><div class="body"><h4>Peters Konditori</h4><p data-en="Run by an award-winning pâtissier — the cakes and chocolate are the thing to order." data-sv="Drivs av en prisbelönt konditor — tårtorna och chokladen ska du beställa.">Run by an award-winning pâtissier — the cakes and chocolate are the thing to order.</p></div></div>
+        <div class="list-row"><div class="num">3</div><div class="body"><h4>Solhaga Stenugnsbageri</h4><p data-en="Stone-oven bakery beloved for its sourdough and pastries — a sunny breakfast spot." data-sv="Stenugnsbageri älskat för surdegsbröd och bakverk — ett soligt frukoststället.">Stone-oven bakery beloved for its sourdough and pastries — a sunny breakfast spot.</p></div></div>
+        <div class="list-row"><div class="num">4</div><div class="body"><h4>Sam's Bake Shop</h4><p data-en="Globally-inspired bakes near the public library — good for a quick, tasty stop." data-sv="Bakverk med inspiration från hela världen nära stadsbiblioteket — perfekt för ett snabbt stopp.">Globally-inspired bakes near the public library — good for a quick, tasty stop.</p></div></div>
+        <p class="meta" style="margin-top:.8rem" data-en="Fika tip: in Sweden, an afternoon coffee with something sweet isn't a habit — it's a ritual." data-sv="Fikatips: i Sverige är eftermiddagskaffe med något sött inte en vana — det är en ritual.">Fika tip: in Sweden, an afternoon coffee with something sweet isn't a habit — it's a ritual.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Explore" data-sv="Upptäck">Explore</div><h2 data-en="Things to Do" data-sv="Att Göra">Things to Do</h2><p class="lead" data-en="Beaches, a pretty old town, salmon in the river and a giant playground — plus easy day trips along the coast." data-sv="Stränder, en vacker gammal stadskärna, lax i ån och en jättelekplats — plus enkla dagsutflykter längs kusten.">Beaches, a pretty old town, salmon in the river and a giant playground — plus easy day trips along the coast.</p></div>
+    <div class="cards cols-2">
+      <div class="card"><h3 data-en="🏖️ Beaches &amp; nature" data-sv="🏖️ Stränder &amp; natur">🏖️ Beaches &amp; nature</h3>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Skrea Strand <span class="dist" data-en="~15 min walk" data-sv="~15 min promenad">~15 min walk</span></h4><p data-en="A kilometre of fine white sand with cafés, beach volleyball, mini-golf, SUP &amp; kayak hire, and a dog beach." data-sv="En kilometer fin vit sand med caféer, beachvolley, minigolf, SUP- &amp; kajakuthyrning och en hundstrand.">A kilometre of fine white sand with cafés, beach volleyball, mini-golf, SUP &amp; kayak hire, and a dog beach.</p></div></div>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Olofsbo Strand <span class="dist" data-en="~5 km north" data-sv="~5 km norrut">~5 km north</span></h4><p data-en="A quieter, beautiful sandy beach backed by dunes — lovely for a calmer day by the sea." data-sv="En lugnare, vacker sandstrand med dyner — härligt för en stillsammare dag vid havet.">A quieter, beautiful sandy beach backed by dunes — lovely for a calmer day by the sea.</p></div></div>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Doctor's Walk &amp; the Ätran <span class="dist" data-en="in town" data-sv="i stan">in town</span></h4><p data-en="A leafy 2 km riverside trail where you'll often spot salmon anglers — the Ätran has Sweden's strongest wild salmon run." data-sv="En grönskande 2 km promenad längs ån där du ofta ser laxfiskare — Ätran har Sveriges starkaste vilda laxbestånd.">A leafy 2 km riverside trail where you'll often spot salmon anglers — the Ätran has Sweden's strongest wild salmon run.</p></div></div>
+      </div>
+      <div class="card"><h3 data-en="🏛️ Town &amp; family" data-sv="🏛️ Stan &amp; familj">🏛️ Town &amp; family</h3>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Tullbron &amp; Old Town <span class="dist" data-en="in town" data-sv="i stan">in town</span></h4><p data-en="The handsome 1761 stone toll bridge over the Ätran, beside cobbled streets, the old church and a herb garden." data-sv="Den vackra tullbron i sten från 1761 över Ätran, intill kullerstensgator, gamla kyrkan och en örtagård.">The handsome 1761 stone toll bridge over the Ätran, beside cobbled streets, the old church and a herb garden.</p></div></div>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Vallarna <span class="dist" data-en="~15 min walk" data-sv="~15 min promenad">~15 min walk</span></h4><p data-en="A riverside park with a big playground, mini-zoo (goats, deer, wild boar), mini-golf, skatepark and a summer outdoor theatre." data-sv="En park vid ån med stor lekplats, minizoo (getter, hjortar, vildsvin), minigolf, skatepark och utomhusteater på sommaren.">A riverside park with a big playground, mini-zoo (goats, deer, wild boar), mini-golf, skatepark and a summer outdoor theatre.</p></div></div>
+        <div class="list-row"><div class="num">★</div><div class="body"><h4>Klitterbadet &amp; bowling <span class="dist" data-en="rainy-day pick" data-sv="för regniga dagar">rainy-day pick</span></h4><p data-en="An adventure pool with kids' pools, sauna and gym — plus a bowling hall in town for an easy indoor afternoon." data-sv="Ett äventyrsbad med barnpooler, bastu och gym — plus en bowlinghall i stan för en enkel inomhuseftermiddag.">An adventure pool with kids' pools, sauna and gym — plus a bowling hall in town for an easy indoor afternoon.</p></div></div>
+      </div>
+    </div>
+    <h3 class="serif" style="color:var(--navy);margin:1.8rem 0 .7rem;font-size:1.18rem" data-en="Day trips along the coast" data-sv="Dagsutflykter längs kusten">Day trips along the coast</h3>
+    <div class="cards cols-3">
+      <div class="card"><h3><span class="ico">🏰</span>Varberg</h3><p data-en="A handsome seaside town around a 13th-century fortress, with a famous cold-bath house. ~30 km north." data-sv="En vacker kuststad kring en fästning från 1200-talet, med ett berömt kallbadhus. ~30 km norrut.">A handsome seaside town around a 13th-century fortress, with a famous cold-bath house. ~30 km north.</p><p class="meta" data-en="≈ 13 min by train" data-sv="≈ 13 min med tåg">≈ 13 min by train</p></div>
+      <div class="card"><h3><span class="ico">🏖️</span>Halmstad</h3><p data-en="A lively city with the vast Tylösand beach, a castle and good shopping. ~40 km south." data-sv="En livlig stad med den vidsträckta Tylösand-stranden, ett slott och bra shopping. ~40 km söderut.">A lively city with the vast Tylösand beach, a castle and good shopping. ~40 km south.</p><p class="meta" data-en="≈ 19 min by train" data-sv="≈ 19 min med tåg">≈ 19 min by train</p></div>
+      <div class="card"><h3><span class="ico">🌁</span>Gothenburg</h3><p data-en="Sweden's vibrant second city — Liseberg amusement park, harbour, museums and great food. ~100 km north." data-sv="Sveriges livfulla andra stad — nöjesparken Liseberg, hamnen, museer och bra mat. ~100 km norrut.">Sweden's vibrant second city — Liseberg amusement park, harbour, museums and great food. ~100 km north.</p><p class="meta" data-en="≈ 1 h–1 h 15 by train" data-sv="≈ 1 h–1 h 15 med tåg">≈ 1 h–1 h 15 by train</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ WORLD CUP ============ -->
+<div class="panel" id="worldcup">
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="June 11 – July 19, 2026" data-sv="11 juni – 19 juli 2026">June 11 – July 19, 2026</div><h2 data-en="FIFA World Cup 2026" data-sv="Fotbolls-VM 2026">FIFA World Cup 2026</h2><p class="lead" data-en="The 48-team tournament across the USA, Canada &amp; Mexico — 104 matches in all. The flat's TV is a great spot to catch the games. All kickoff times below are shown in Swedish time (CEST)." data-sv="Turneringen med 48 lag i USA, Kanada &amp; Mexiko — 104 matcher totalt. Lägenhetens TV är perfekt för att se matcherna. Alla avsparkstider nedan visas i svensk tid (CEST).">The 48-team tournament across the USA, Canada &amp; Mexico — 104 matches in all. The flat's TV is a great spot to catch the games. All kickoff times below are shown in Swedish time (CEST).</p></div>
+
+    <div class="wc-hero">
+      <h3 data-en="💛💙 Heja Sverige! — Group F" data-sv="💛💙 Heja Sverige! — Grupp F">💛💙 Heja Sverige! — Group F</h3>
+      <p data-en="Sweden share Group F with the Netherlands, Japan and Tunisia. Here are the Blågult's three group games, in Swedish time:" data-sv="Sverige delar grupp F med Nederländerna, Japan och Tunisien. Här är Blågults tre gruppspelsmatcher, i svensk tid:">Sweden share Group F with the Netherlands, Japan and Tunisia. Here are the Blågult's three group games, in Swedish time:</p>
+      <div class="swe-games" id="swe-games"></div>
+    </div>
+
+    <p class="tz-note" data-en="⏱ All times are Swedish time (CEST). Late-night kickoffs are because matches are played in North American afternoons/evenings." data-sv="⏱ Alla tider är svensk tid (CEST). Sena avsparkar beror på att matcherna spelas på eftermiddagar/kvällar i Nordamerika.">⏱ All times are Swedish time (CEST). Late-night kickoffs are because matches are played in North American afternoons/evenings.</p>
+
+    <h3 class="serif" style="color:var(--navy);margin:1.4rem 0 .2rem;font-size:1.25rem" data-en="Group stage — full schedule" data-sv="Gruppspel — hela schemat">Group stage — full schedule</h3>
+    <div id="wc-schedule"></div>
+
+    <h3 class="serif" style="color:var(--navy);margin:1.8rem 0 .2rem;font-size:1.25rem" data-en="Knockout rounds" data-sv="Slutspel">Knockout rounds</h3>
+    <p class="meta" data-en="Match-ups are confirmed as the group stage finishes. Key dates and Swedish kickoff times:" data-sv="Lagen bekräftas när gruppspelet är klart. Viktiga datum och svenska avsparkstider:">Match-ups are confirmed as the group stage finishes. Key dates and Swedish kickoff times:</p>
+    <div class="kf" id="wc-knockout"></div>
+  </section>
+</div>
+
+<!-- ============ CAR ============ -->
+<div class="panel" id="car">
+  <section>
+    <div class="sec-head"><div class="kicker" data-en="Explore Further" data-sv="Utforska Mer">Explore Further</div><h2 data-en="Rent a Tesla Model 3" data-sv="Hyr en Tesla Model 3">Rent a Tesla Model 3</h2><p class="lead" data-en="Want to roam the coast or take a day trip in style? A Tesla Model 3 is available to rent locally in Tröingeberg, just outside Falkenberg, through GoMore." data-sv="Vill du utforska kusten eller ta en dagsutflykt med stil? En Tesla Model 3 finns att hyra lokalt i Tröingeberg, strax utanför Falkenberg, via GoMore.">Want to roam the coast or take a day trip in style? A Tesla Model 3 is available to rent locally in Tröingeberg, just outside Falkenberg, through GoMore.</p></div>
+    <div class="car">
+      <div class="ph">
+        <img src="https://d147al5y0i1rb.cloudfront.net/uploads/car_picture/image/1326725/car_1749448890.jpg?ixlib=rails-4.3.1&auto=format%2Ccompress&fit=crop&w=1100&h=820" alt="Tesla Model 3">
+        <span class="badge" data-en="Available via GoMore" data-sv="Finns via GoMore">Available via GoMore</span>
+      </div>
+      <div class="info">
+        <h3>Tesla Model 3</h3>
+        <div class="price">540 kr <small data-en="/ day" data-sv="/ dag">/ day</small></div>
+        <p class="meta" data-en="📍 Tröingeberg, 311 76 — a few minutes from the flat" data-sv="📍 Tröingeberg, 311 76 — några minuter från lägenheten">📍 Tröingeberg, 311 76 — a few minutes from the flat</p>
+        <div class="specs">
+          <span data-en="⚡ Fully electric" data-sv="⚡ Helelektrisk">⚡ Fully electric</span>
+          <span data-en="🔇 Silent &amp; smooth" data-sv="🔇 Tyst &amp; mjuk">🔇 Silent &amp; smooth</span>
+          <span data-en="🌿 Zero emissions" data-sv="🌿 Utsläppsfri">🌿 Zero emissions</span>
+          <span data-en="📱 Easy booking" data-sv="📱 Enkel bokning">📱 Easy booking</span>
+        </div>
+        <p data-en="Perfect for exploring Varberg, Halmstad, Gothenburg or the beaches up the coast. Booking, insurance and key handover are all handled simply through GoMore." data-sv="Perfekt för att utforska Varberg, Halmstad, Göteborg eller stränderna längs kusten. Bokning, försäkring och nyckelöverlämning sköts enkelt via GoMore.">Perfect for exploring Varberg, Halmstad, Gothenburg or the beaches up the coast. Booking, insurance and key handover are all handled simply through GoMore.</p>
+        <a class="btn" href="https://gomore.se/cars/976000" target="_blank" rel="noopener" data-en="View &amp; book on GoMore →" data-sv="Visa &amp; boka på GoMore →">View &amp; book on GoMore →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
+
+<footer>
+  <div class="fb" data-en="Enjoy Falkenberg 🌊" data-sv="Njut av Falkenberg 🌊">Enjoy Falkenberg 🌊</div>
+  <p data-en="Anything you need during your stay, just message me through the Airbnb app or your Booking.com message inbox — I'm happy to help." data-sv="Behöver du något under vistelsen, skriv till mig via Airbnb-appen eller din meddelandeinkorg på Booking.com — jag hjälper gärna till.">Anything you need during your stay, just message me through the Airbnb app or your Booking.com message inbox — I'm happy to help.</p>
+  <p data-en="Spacious Flat · Nygatan 53, 311 74 Falkenberg, Sweden" data-sv="Rymlig lägenhet · Nygatan 53, 311 74 Falkenberg, Sverige">Spacious Flat · Nygatan 53, 311 74 Falkenberg, Sweden</p>
+  <p style="margin-top:.7rem">Made with <span class="heart">♥</span> for our guests</p>
+</footer>
+
+<script>
+var LANG='en';
+
+/* ---------- Tabs ---------- */
+function showTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(b) showTab(b.dataset.tab);
+});
+
+/* ---------- Photo gallery ---------- */
+const PHOTOS=[
+"7c772072-5bfd-46a9-a17f-a925ab051264","ed3a0099-6abf-46ed-8d96-782e2caf09c6","2ab0ed36-f01e-49d1-90c1-d33936a2f392",
+"eeefd63c-5b8a-4a17-9a21-06485341a268","0ee2f8cc-8b3f-4808-8acf-2e22a3eb684f","6fdaf338-d93c-4281-9908-9d3dd3aace2b",
+"941610dc-37dd-472d-b7b1-e4f0d83e3c99","35c115ad-9dbf-41f3-be10-d027e8d13004","09f09aed-6281-4cc0-ba55-0c3172aa852f",
+"6e821cec-5f4c-441e-970a-c1df9c2a4931"
+].map(id=>"https://a0.muscache.com/im/pictures/hosting/Hosting-1531062853568653805/original/"+id+".jpeg?im_w=1200");
+document.getElementById('gallery').innerHTML=PHOTOS.map(u=>`<img loading="lazy" src="${u}" alt="Apartment photo" onclick="openLb('${u}')">`).join('');
+function openLb(u){document.getElementById('lb-img').src=u;document.getElementById('lightbox').classList.add('open');}
+
+/* ---------- Amenities ---------- */
+const amenities=[
+ {en:"Wi-Fi",sv:"Wi-Fi",i:"📶"},{en:"Free street parking",sv:"Gratis gatuparkering",i:"🚗"},{en:"Private terrace / balcony",sv:"Privat terrass / balkong",i:"🌿"},
+ {en:"Fireplace",sv:"Öppen spis",i:"🔥"},{en:"Heating",sv:"Värme",i:"♨️"},{en:"Fully equipped kitchen",sv:"Fullt utrustat kök",i:"🍳"},
+ {en:"Induction hob (4)",sv:"Induktionshäll (4)",i:"🔆"},{en:"Oven",sv:"Ugn",i:"🥧"},{en:"Dishwasher",sv:"Diskmaskin",i:"🍽️"},
+ {en:"Fridge & freezer",sv:"Kyl & frys",i:"🧊"},{en:"Coffee machine",sv:"Kaffebryggare",i:"☕"},{en:"Kettle",sv:"Vattenkokare",i:"🫖"},
+ {en:"Toaster",sv:"Brödrost",i:"🍞"},{en:"Wine glasses",sv:"Vinglas",i:"🍷"},{en:"Washer",sv:"Tvättmaskin",i:"🧺"},
+ {en:"Dryer",sv:"Torktumlare",i:"🌀"},{en:"Iron",sv:"Strykjärn",i:"👕"},{en:"Fresh bed linen",sv:"Rena sänglinnen",i:"🛏️"},
+ {en:"Blackout blinds",sv:"Mörkläggningsgardiner",i:"🌑"},{en:"TV · Netflix",sv:"TV · Netflix",i:"📺"},{en:"Board games",sv:"Sällskapsspel",i:"🎲"},
+ {en:"Kids' playroom & toys",sv:"Lekrum & leksaker",i:"🧸"},{en:"Barbecue & tools",sv:"Grill & tillbehör",i:"🍖"},{en:"Dining table (8)",sv:"Matbord (8)",i:"🪑"},
+ {en:"Smoke detector",sv:"Brandvarnare",i:"🚨"},{en:"Fire extinguisher",sv:"Brandsläckare",i:"🧯"}
+];
+
+/* ---------- World Cup data ---------- */
+// Country names EN -> SV
+const C={"Mexico":"Mexiko","South Africa":"Sydafrika","South Korea":"Sydkorea","Czechia":"Tjeckien","Canada":"Kanada","Bosnia":"Bosnien","Qatar":"Qatar","Switzerland":"Schweiz","Brazil":"Brasilien","Morocco":"Marocko","Haiti":"Haiti","Scotland":"Skottland","USA":"USA","Paraguay":"Paraguay","Australia":"Australien","Turkiye":"Turkiet","Germany":"Tyskland","Curacao":"Curaçao","Ivory Coast":"Elfenbenskusten","Ecuador":"Ecuador","Netherlands":"Nederländerna","Japan":"Japan","Sweden":"Sverige","Tunisia":"Tunisien","Belgium":"Belgien","Egypt":"Egypten","Iran":"Iran","New Zealand":"Nya Zeeland","Spain":"Spanien","Cape Verde":"Kap Verde","Saudi Arabia":"Saudiarabien","Uruguay":"Uruguay","France":"Frankrike","Senegal":"Senegal","Iraq":"Irak","Norway":"Norge","Argentina":"Argentina","Algeria":"Algeriet","Austria":"Österrike","Jordan":"Jordanien","Portugal":"Portugal","DR Congo":"DR Kongo","Uzbekistan":"Uzbekistan","Colombia":"Colombia","England":"England","Croatia":"Kroatien","Ghana":"Ghana","Panama":"Panama"};
+function team(n){return LANG==='sv'?(C[n]||n):n;}
+
+// Each day: date (ISO for "past" check), EN/SV label, matches [time, home, away]
+const DAYS=[
+ {iso:"2026-06-11",en:"Thursday 11 June",sv:"Torsdag 11 juni",m:[["21:00","Mexico","South Africa"]]},
+ {iso:"2026-06-12",en:"Friday 12 June",sv:"Fredag 12 juni",m:[["04:00","South Korea","Czechia"],["21:00","Canada","Bosnia"]]},
+ {iso:"2026-06-13",en:"Saturday 13 June",sv:"Lördag 13 juni",m:[["03:00","USA","Paraguay"],["21:00","Qatar","Switzerland"]]},
+ {iso:"2026-06-14",en:"Sunday 14 June",sv:"Söndag 14 juni",m:[["00:00","Brazil","Morocco"],["03:00","Haiti","Scotland"],["06:00","Australia","Turkiye"],["19:00","Germany","Curacao"],["22:00","Netherlands","Japan"]]},
+ {iso:"2026-06-15",en:"Monday 15 June",sv:"Måndag 15 juni",m:[["01:00","Ivory Coast","Ecuador"],["04:00","Sweden","Tunisia"],["18:00","Spain","Cape Verde"],["21:00","Belgium","Egypt"]]},
+ {iso:"2026-06-16",en:"Tuesday 16 June",sv:"Tisdag 16 juni",m:[["00:00","Saudi Arabia","Uruguay"],["03:00","Iran","New Zealand"],["21:00","France","Senegal"]]},
+ {iso:"2026-06-17",en:"Wednesday 17 June",sv:"Onsdag 17 juni",m:[["00:00","Iraq","Norway"],["03:00","Argentina","Algeria"],["06:00","Austria","Jordan"],["19:00","Portugal","DR Congo"],["22:00","England","Croatia"]]},
+ {iso:"2026-06-18",en:"Thursday 18 June",sv:"Torsdag 18 juni",m:[["01:00","Ghana","Panama"],["04:00","Uzbekistan","Colombia"],["18:00","Czechia","South Africa"],["21:00","Switzerland","Bosnia"]]},
+ {iso:"2026-06-19",en:"Friday 19 June",sv:"Fredag 19 juni",m:[["00:00","Canada","Qatar"],["03:00","Mexico","South Korea"],["21:00","USA","Australia"]]},
+ {iso:"2026-06-20",en:"Saturday 20 June",sv:"Lördag 20 juni",m:[["00:00","Scotland","Morocco"],["02:30","Brazil","Haiti"],["05:00","Turkiye","Paraguay"],["19:00","Netherlands","Sweden"],["22:00","Germany","Ivory Coast"]]},
+ {iso:"2026-06-21",en:"Sunday 21 June",sv:"Söndag 21 juni",m:[["05:00","Ecuador","Curacao"],["06:00","Tunisia","Japan"],["18:00","Spain","Saudi Arabia"],["21:00","Belgium","Iran"]]},
+ {iso:"2026-06-22",en:"Monday 22 June",sv:"Måndag 22 juni",m:[["00:00","Uruguay","Cape Verde"],["03:00","New Zealand","Egypt"],["19:00","Argentina","Austria"],["23:00","France","Iraq"]]},
+ {iso:"2026-06-23",en:"Tuesday 23 June",sv:"Tisdag 23 juni",m:[["02:00","Norway","Senegal"],["05:00","Jordan","Algeria"],["19:00","Portugal","Uzbekistan"],["22:00","England","Ghana"]]},
+ {iso:"2026-06-24",en:"Wednesday 24 June",sv:"Onsdag 24 juni",m:[["01:00","Panama","Croatia"],["04:00","Colombia","DR Congo"],["21:00","Switzerland","Canada"],["21:00","Bosnia","Qatar"]]},
+ {iso:"2026-06-25",en:"Thursday 25 June",sv:"Torsdag 25 juni",m:[["00:00","Scotland","Brazil"],["00:00","Morocco","Haiti"],["03:00","Czechia","Mexico"],["03:00","South Africa","South Korea"],["22:00","Ecuador","Germany"],["22:00","Curacao","Ivory Coast"]]},
+ {iso:"2026-06-26",en:"Friday 26 June",sv:"Fredag 26 juni",m:[["01:00","Japan","Sweden"],["01:00","Tunisia","Netherlands"],["04:00","Turkiye","USA"],["04:00","Paraguay","Australia"],["21:00","Norway","France"],["21:00","Senegal","Iraq"]]},
+ {iso:"2026-06-27",en:"Saturday 27 June",sv:"Lördag 27 juni",m:[["02:00","Cape Verde","Saudi Arabia"],["02:00","Uruguay","Spain"],["05:00","Egypt","Iran"],["05:00","New Zealand","Belgium"],["23:00","Panama","England"],["23:00","Croatia","Ghana"]]},
+ {iso:"2026-06-28",en:"Sunday 28 June",sv:"Söndag 28 juni",m:[["01:30","Colombia","Portugal"],["01:30","DR Congo","Uzbekistan"],["04:00","Algeria","Austria"],["04:00","Jordan","Argentina"]]}
+];
+
+const KO=[
+ {en:"Round of 32",sv:"Åttondelsfinaler (32-lag)",dEn:"28 June – 3 July · daily, Swedish kickoffs from 18:00",dSv:"28 juni – 3 juli · dagligen, svenska avsparkar från 18:00"},
+ {en:"Round of 16",sv:"Åttondelsfinaler (16-lag)",dEn:"4 – 7 July · kickoffs around 17:00–00:00",dSv:"4 – 7 juli · avspark cirka 17:00–00:00"},
+ {en:"Quarter-finals",sv:"Kvartsfinaler",dEn:"9 July 22:00 · 10 July 21:00 · 11 July 22:00 & 12 July 03:00",dSv:"9 juli 22:00 · 10 juli 21:00 · 11 juli 22:00 & 12 juli 03:00"},
+ {en:"Semi-finals",sv:"Semifinaler",dEn:"Tue 14 July 21:00 · Wed 15 July 21:00",dSv:"Tis 14 juli 21:00 · Ons 15 juli 21:00"},
+ {en:"Third-place play-off",sv:"Bronsmatch",dEn:"Saturday 18 July · 23:00 — Miami",dSv:"Lördag 18 juli · 23:00 — Miami"},
+ {en:"FINAL",sv:"FINAL",dEn:"Sunday 19 July · 21:00 — New York / New Jersey",dSv:"Söndag 19 juli · 21:00 — New York / New Jersey",fin:true}
+];
+
+const SWE=[
+ {vsEn:"Sweden vs Tunisia",vsSv:"Sverige – Tunisien",whenEn:"Mon 15 Jun · 04:00",whenSv:"Mån 15 juni · 04:00"},
+ {vsEn:"Netherlands vs Sweden",vsSv:"Nederländerna – Sverige",whenEn:"Sat 20 Jun · 19:00",whenSv:"Lör 20 juni · 19:00"},
+ {vsEn:"Japan vs Sweden",vsSv:"Japan – Sverige",whenEn:"Fri 26 Jun · 01:00",whenSv:"Fre 26 juni · 01:00"}
+];
+
+const TODAY="2026-06-16";
+function renderWC(){
+ // Sweden cards
+ document.getElementById('swe-games').innerHTML=SWE.map(s=>
+   `<div class="swe-card"><div class="vs">${LANG==='sv'?s.vsSv:s.vsEn}</div><div class="when">${LANG==='sv'?s.whenSv:s.whenEn}</div></div>`).join('');
+ // Schedule
+ document.getElementById('wc-schedule').innerHTML=DAYS.map(d=>{
+   const past=d.iso<TODAY;
+   const label=LANG==='sv'?d.sv:d.en;
+   const pastTag=past?`<span class="past">${LANG==='sv'?'spelad':'played'}</span>`:'';
+   const rows=d.m.map(m=>{
+     const isSwe=(m[1]==='Sweden'||m[2]==='Sweden');
+     return `<div class="match${isSwe?' swe':''}"><div class="t">${m[0]}</div><div class="teams">${team(m[1])} <span style="color:var(--muted)">–</span> ${team(m[2])}</div></div>`;
+   }).join('');
+   return `<div class="wc-day"><div class="dh">${label} ${pastTag}</div>${rows}</div>`;
+ }).join('');
+ // Knockout
+ document.getElementById('wc-knockout').innerHTML=KO.map(k=>
+   `<div class="k${k.fin?' fin':''}"><div class="r">${LANG==='sv'?k.sv:k.en}</div><div class="dt">${LANG==='sv'?k.dSv:k.dEn}</div></div>`).join('');
+}
+
+/* ---------- Language ---------- */
+function renderChips(){
+ document.getElementById('amenity-chips').innerHTML=amenities.map(a=>`<span class="chip"><span>${a.i}</span>${LANG==='sv'?a.sv:a.en}</span>`).join('');
+}
+function setLang(lang){
+ LANG=lang;
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-en]').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t!==null)el.textContent=t;});
+ document.getElementById('btn-en').classList.toggle('active',lang==='en');
+ document.getElementById('btn-sv').classList.toggle('active',lang==='sv');
+ renderChips(); renderWC();
+}
+renderChips(); renderWC();
+</script>
+</body>
+</html>
